@@ -106,6 +106,7 @@ csvWriter = csv.writer(f)
 headers=['full_text','retweet_count','user_followers_count','favorite_count','place','coordinates','geo','created_at','id_str']
 csvWriter.writerow(headers)
 
+inputFile ="G:\\IIITD\\Information Retrieval\\Project\\Shivani19128.github.io\\tweet_data.txt"
 tweets = []
 for line in open(inputFile, 'r'):
     tweets.append(json.loads(line))
@@ -119,7 +120,6 @@ for tweet in tweets:
     except Exception as e:
         print(e)
 print(count_lines)
-
 
 # In[ ]:
 
