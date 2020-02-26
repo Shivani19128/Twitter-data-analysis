@@ -1,0 +1,20 @@
+def translator(user_string):
+    user_string = user_string.split(" ")
+    j = 0
+    
+    for word in user_string:
+        
+        with open("D:/Information Retrieval/Project/slang.txt", "r") as my_file:
+            data = csv.reader(my_file, delimiter="=")
+            word = re.sub('[^a-zA-Z0-9-_.]', '', word)
+            
+            for row in data:
+                if word.upper() == row[0]:
+                    user_string[j] = row[1]
+             
+            my_file.close()
+            
+        j = j + 1
+    print(user_string)
+    
+translator(user_string)
