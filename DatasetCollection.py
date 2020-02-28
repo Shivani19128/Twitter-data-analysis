@@ -14,12 +14,6 @@ st = time.time()
 
 # In[20]:
 
-
-API_KEY="U4wOpovGp6q0Qwh6hlKw73DXS"
-API_SECRET="kswr8NidjxveJvLyCl8ZXsVz5xdckJkNhGbGd1pjxgIz1v5zWa"
-ACCESS_TOKEN="1221825061184659457-GQAQH2lt7HhI23ihIJ81NzLHZUTtAY"
-ACCESS_TOKEN_SECRET="yw69GXrZWnIAFyetKOEnFve2DIpfQHxQ9L73gghJkAXdw"
-
 auth = tweepy.AppAuthHandler(API_KEY,API_SECRET)
 api = tweepy.API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 # where i save the tweets
