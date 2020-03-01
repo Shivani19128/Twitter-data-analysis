@@ -1,0 +1,11 @@
+from flask import Flask,request,redirect,url_for,render_template
+app = Flask(__name__)
+@app.route('/', methods=['GET', 'POST'])
+def hello():
+    return render_template("index.html", content={"Positive Tweets are :":2, "Negative Tweets are :":4, "Neutral Tweets are: ":10})
+@app.route('/button_press')
+def button_press():
+        return render_template('result.html',content={"Positive Tweets are :":2, "Negative Tweets are :":4, "Neutral Tweets are: ":10})
+        
+        
+app.run(debug=True,use_reloader=False)        
