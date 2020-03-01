@@ -1,0 +1,19 @@
+from geotext import GeoText
+
+for i in range(len(Data)):    
+    loc=Data.iloc[i,0]
+    if(pd.isnull(loc)):
+        continue
+    else:    
+        if(loc.islower()):
+            places = GeoText(loc.capitalize())
+            city=places.cities
+        else:
+            places = GeoText(loc)
+            city=places.cities
+            if len(city)==1:
+                Data["location"].replace({loc:city}, inplace=True)
+            if len(city)>1:
+                Data["location"].replace({loc:city[0]}, inplace=True)
+        if len(city)==0:
+                    Data["location"].replace({loc:""}, inplace=True)
