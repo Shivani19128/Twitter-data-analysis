@@ -18,5 +18,3 @@ https://www.geeksforgeeks.org/extraction-of-tweets-using-tweepy/
 https://www.sciencedirect.com/science/article/pii/S0167923614001997
 
 
-1221825061184659457-okXalb9dXxgrwnF7Ns3hEIzNAoEsjY
-JLfdpTo5Yg7zqTI7BwjEnzDLKQ4ySIMJ7uSrw35Y94ubP
