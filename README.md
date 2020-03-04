@@ -17,4 +17,6 @@ https://towardsdatascience.com/extracting-twitter-data-pre-processing-and-sentim
 https://www.geeksforgeeks.org/extraction-of-tweets-using-tweepy/
 https://www.sciencedirect.com/science/article/pii/S0167923614001997
 
+http://simhanaidu.blogspot.com/2013/01/text-list-of-indian-states-and-cities.html
+
 
