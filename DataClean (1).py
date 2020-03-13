@@ -594,4 +594,10 @@ telagana 81
 uttar Pradesh 156
 bihar 109
 total = 2342
-
+# Data from dict1 to csv
+import csv
+with open('dict.csv', 'w', newline="",encoding="utf-8") as csv_file:  
+    writer = csv.writer(csv_file,quoting=csv.QUOTE_ALL)
+    for key,value in dict1.items():
+        for tweet in value:
+            writer.writerow([key,tweet[0],tweet[1],tweet[2]])
