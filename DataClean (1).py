@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[52]:
+# In[1]:
 
 
 import pandas as pd
@@ -11,13 +11,13 @@ import re
 from nltk.stem import WordNetLemmatizer
 
 
-# In[53]:
+# In[2]:
 
 
 lemmatizer = WordNetLemmatizer() 
 
 
-# In[54]:
+# In[3]:
 
 
 Data = pd.read_excel("D:/Information Retrieval/Project/Unique_Final_Data.xlsx")
@@ -25,26 +25,26 @@ print(Data.shape)
 print(Data.columns)
 
 
-# In[55]:
+# In[4]:
 
 
 Data['Tweets'].value_counts().to_numpy()
 
 
-# In[56]:
+# In[5]:
 
 
 Data.drop_duplicates(subset ='Tweets',keep = 'first', inplace = True)
 print(Data.shape)
 
 
-# In[57]:
+# In[6]:
 
 
 #Data.to_excel('D:/Information Retrieval/Project/Unique_Merged_Final_Data.xlsx')
 
 
-# In[58]:
+# In[7]:
 
 
 emojis = ["\U0001F600","\U0001F603","\U0001F604","\U0001F601","\U0001F606","\U0001F605","\U0001F923","\U0001F602","\U0001F642",
@@ -55,14 +55,14 @@ emojis = ["\U0001F600","\U0001F603","\U0001F604","\U0001F601","\U0001F606","\U00
           "\U0001F637","\U0001F912","\U0001F915","\U0001F922"]
 
 
-# In[62]:
+# In[8]:
 
 
 print(Data)
 print(Data.shape)
 
 
-# In[65]:
+# In[9]:
 
 
 def remove_references(Data):
@@ -82,7 +82,7 @@ for k in range(len(Data)):
         print(Data.iloc[k,3],"\n")
 
 
-# In[66]:
+# In[10]:
 
 
 special_characters = {
@@ -99,7 +99,7 @@ special_characters = {
   }
 
 
-# In[67]:
+# In[11]:
 
 
 data = Data.to_numpy()
@@ -108,7 +108,7 @@ print(type(data))
 length = len(data)
 
 
-# In[68]:
+# In[12]:
 
 
 def remove_special_characters(data, special_characters):
@@ -137,7 +137,7 @@ data = remove_special_characters(data, special_characters)
 #print(data)
 
 
-# In[69]:
+# In[13]:
 
 
 def create_dictionary():
@@ -158,14 +158,14 @@ abbreviations = create_dictionary()
 #print(abbreviations)
 
 
-# In[70]:
+# In[14]:
 
 
 for i in range(len(data)):
     print(data[i:,])
 
 
-# In[71]:
+# In[15]:
 
 
 def remove_abbreviations(data, abbreviations):
@@ -194,7 +194,7 @@ def remove_abbreviations(data, abbreviations):
 data = remove_abbreviations(data, abbreviations)
 
 
-# In[72]:
+# In[16]:
 
 
 whitespace = ' \t\n\r\v\f'
@@ -208,7 +208,7 @@ punctuation = r"""!"#$%&'()*+-./:;<=>?@[\]^_`{|}~"""
 printable = digits + ascii_letters + punctuation + whitespace
 
 
-# In[73]:
+# In[17]:
 
 
 def modify_locations(data):
@@ -229,13 +229,13 @@ modify_locations(data)
 print(type(data))
 
 
-# In[74]:
+# In[18]:
 
 
 print(data)
 
 
-# In[75]:
+# In[19]:
 
 
 new_data = pd.DataFrame(data, columns = ['Location','Retweet','Date','Tweet'])
@@ -243,7 +243,7 @@ print(new_data)
 new_data.to_excel("D:/Information Retrieval/Project/Harshita.xlsx")
 
 
-# In[76]:
+# In[20]:
 
 
 def convert_lower(data):
@@ -261,7 +261,7 @@ def convert_lower(data):
 data = convert_lower(data)
 
 
-# In[77]:
+# In[21]:
 
 
 def remove_hashtags(data):
@@ -282,7 +282,7 @@ data = remove_hashtags(data)
 print(data)
 
 
-# In[78]:
+# In[22]:
 
 
 def lemmatization(data):
@@ -303,7 +303,7 @@ data = lemmatization(data)
 print(data)
 
 
-# In[79]:
+# In[23]:
 
 
 def return_states(states, data):
@@ -335,13 +335,13 @@ def return_states(states, data):
     return new_x
 
 
-# In[80]:
+# In[24]:
 
 
 print(data[0,:])
 
 
-# In[82]:
+# In[26]:
 
 
 def state_wise_tweets(data):
@@ -477,7 +477,7 @@ def state_wise_tweets(data):
                             new_data = list(data[i,1:])
                             x = []
                             x.append(new_data)
-                            state_tweets[state] = new_data
+                            state_tweets[state] = x
                         
             else:
                 count = False
@@ -491,7 +491,7 @@ def state_wise_tweets(data):
                     new_data = list(data[i,1:])
                     x = []
                     x.append(new_data)
-                    state_tweets[state] = new_data
+                    state_tweets[state] = x
         
         if(count == True):
             tweet_data = data[i][3].split()
@@ -511,7 +511,7 @@ def state_wise_tweets(data):
                         new_data = list(data[i,1:])
                         x = []
                         x.append(new_data)
-                        state_tweets[k] = new_data
+                        state_tweets[k] = x
                         
         if(count == True):
             if('random' in state_tweets):
@@ -532,16 +532,16 @@ def state_wise_tweets(data):
         
 dict1 = state_wise_tweets(data)
 sum1 = 0
-for k in dict1:
+"""for k in dict1:
     print(k)
     print(dict1[k],"\n\n\n")
     sum1 = sum1 + len(dict1[k])
 
 print("\n")
-print(sum1)
+print(sum1)"""
 
 
-# In[83]:
+# In[27]:
 
 
 print(dict1)
